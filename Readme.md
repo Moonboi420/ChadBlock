@@ -1,5 +1,5 @@
 Crude but stealthy adblocker for youtube on chrome.
-All it does is reloads the page and restores your progress through the video.
+When it detects an add it reloads the page and restores your progress through the video.
 Its a chrome extention so to use it just download the files into a folder...
 Then go to youtubechrome://extensions/
 Enable developer mode
