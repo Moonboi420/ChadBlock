@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 220px;
+      padding: 16px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      user-select: none;
+    }
+    h2 {
+      margin: 8px 0 4px;
+      font-size: 18px;
+      color: #ffcc00;
+      text-shadow: 0 0 8px #ffcc00;
+    }
+    #toggle {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin: 16px auto;
+      cursor: pointer;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+    #toggle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+    #overlay {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+    #status {
+      font-size: 14px;
+      margin: 8px 0;
+      font-weight: bold;
+    }
+    #wow {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff6b6b;
+      margin-top: 12px;
+      text-shadow: 0 0 10px #ff6b6b;
+    }
+    .on  #overlay { background: rgba(0, 255, 0, 0.35); }
+    .off #overlay { background: rgba(255, 0, 0, 0.45); }
+    .on  #toggle img { filter: brightness(1.1) saturate(1.3); }
+    .off #toggle img { filter: brightness(0.7) grayscale(0.4); }
+  </style>
+</head>
+<body>
+  <h2>YOU AD REFRESH</h2>
+  <div id="toggle">
+    <img src="icon128.png" alt="Doge">
+    <div id="overlay"></div>
+  </div>
+  <div id="status">toggle on / off</div>
+  <div id="wow">NO ADS?! SUCH WOW!</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

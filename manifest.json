@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "CHADBLOCK",
+  "version": "1.0",
+  "description": "Crude but stealthy adblocker. Just restarts page and resumes from where you left off. FUCK YOU ADVERTS",
+  "permissions": ["storage"],
+  "icons": {
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/watch*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
