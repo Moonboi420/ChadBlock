@@ -15,6 +15,7 @@ async function getAutoReloaded() {
 }
 
 function isAdPlaying() {
+  console.log('checking for ads')
   const player = document.querySelector('#movie_player');
   if (!player) return false;
   return player.classList.contains('ad-showing');
@@ -30,6 +31,7 @@ function saveProgress() {
 function restoreProgress(video) {
   chrome.storage.local.get('lastProgress', data => {
     const progress = data.lastProgress;
+    if (progress == 0) return;
     video.currentTime = progress;
     video.play().catch(e => console.log('Play failed:', e));
   })
@@ -61,8 +63,18 @@ function adLoop(loop) {
     if (lastUrl != location.href) chrome.storage.local.set({ lastProgress: 0 });
     lastUrl = location.href;
     run()
-  }, 1000);
+  }, 500);
 
+}
+
+function focus() {
+  Object.defineProperty(document, 'visibilityState', {value: 'visible', writable: true});
+  Object.defineProperty(document, 'hidden', {value: false, writable: true});
+  document.dispatchEvent(new Event('visibilitychange', {bubbles: true}));
+
+  window.dispatchEvent(new Event('focus'));
+  document.dispatchEvent(new Event('focus'));
+  window.dispatchEvent(new Event('pageshow'));
 }
   
 async function main() {
@@ -70,7 +82,8 @@ async function main() {
   if (await getEnabled()) {
     if (await getAutoReloaded()) {
       chrome.storage.local.set({ autoReloaded: false });
-      loop.push(setInterval(() => reloadLoop(loop), 2000));
+      focus()
+      loop.push(setInterval(() => reloadLoop(loop), 500));
     }
     else {
       chrome.storage.local.set({ lastProgress: 0 })

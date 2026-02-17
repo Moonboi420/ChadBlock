@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "CHADBLOCK",
   "version": "1.0",
-  "description": "Crude but stealthy adblocker. Just restarts page and resumes from where you left off. FUCK YOU ADVERTS",
+  "description": "Crude but stealthy youtube adblocker. Just restarts page and resumes from where you left off. FUCK YOU ADVERTS",
   "permissions": ["storage"],
   "icons": {
     "128": "icon128.png"
@@ -12,7 +12,11 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/watch*"],
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://youtu.be/*",
+        "*://*.youtube-nocookie.com/*"
+      ],
       "js": ["content.js"],
       "run_at": "document_end"
     }
