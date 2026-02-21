@@ -7,3 +7,6 @@ Then click 'load unpacked' and select the folder.
 I hope you enjoy the theme and adfree videos :)
 
 Please address any ethics related enquires to www.chatgpt.com
+
+pls xmr
+86XeJYscdWFQ5VDvpKzcAeAUfoA6AG5wP5RpkyWH4xZvJziLfBkQk1B2ub8XJHzSoQi27AxGdQcnh2r2nGK1iRzGSovivb8
